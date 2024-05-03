@@ -1,8 +1,28 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import Enzyme, { shallow } from "enzyme"
+import  EnzymeAdapter  from "@cfaester/enzyme-adapter-react-18"
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+import App from "./App"
+
+Enzyme.configure({ adapter: new EnzymeAdapter })
+
+test('render without error', () => {
+  const wrapper =  shallow(<App/>)
+  const appComponent = wrapper.find("[data-test='component-app']")
+  expect(appComponent.length)
+})
+
+test('render increment button',()=>{
+
+});
+
+test('render counter display',()=>{
+
+})
+
+test('counter display starts at 0',()=>{
+
+});
+
+test('clicking button increment counter display',()=>{
+
 });
