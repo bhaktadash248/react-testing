@@ -14,11 +14,23 @@ test('render without error', () => {
   expect(appComponent.length).toBe(1)
 })
 
+test('counter zero error',()=>{
+  const wrapper = setUp();
+  const error = findByTestAttr(wrapper,'counter-zero-error')
+  expect(error.length).toBe(0)
+})
+
 test('render increment button',()=>{
   const wrapper = setUp()
   const button = findByTestAttr(wrapper,'increment-button')
   expect(button.length).toBe(1)
 });
+
+test('render decrement button',()=>{
+  const wrapper = setUp();
+  const decrementButton = findByTestAttr(wrapper,'decrement-button')
+  expect(decrementButton.length).toBe(1)
+})
 
 test('render counter display',()=>{
   const wrapper = setUp()
@@ -42,3 +54,11 @@ test('clicking button increment counter display',()=>{
   const count = findByTestAttr(wrapper, 'count').text();
   expect(count).toBe("1")
 });
+
+test('clicking button decrement counter display',()=>{
+  const wrapper = setUp();
+  const button = findByTestAttr(wrapper, 'decrement-button')
+  button.simulate('click');
+  const count = findByTestAttr(wrapper,'count').text()
+  expect(count).toBe(0)
+})

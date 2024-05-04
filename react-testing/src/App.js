@@ -19,7 +19,7 @@ const App = () => {
   return (
     <div data-test="component-app">
       <h3 data-test='counter-test'>Current counter value <span data-test="count">{counter}</span></h3>
-      {error ? <h3>You can not set the counter value less then zero</h3>: null}
+      {error ? <h3 data-test="counter-zero-error">You can not set the counter value less then zero</h3>: null}
       <input data-test='increment-button' type="button" value="increment" onClick={() => increaseCounterVal()} />
       <input data-test='decrement-button' type="button" value="decrement" onClick={() => decreaseCounterVal()} />
     </div>
