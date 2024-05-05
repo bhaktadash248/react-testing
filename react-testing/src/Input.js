@@ -1,14 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react';
+import  PropTypes from 'prop-types';
 
-const Input = () =>{
-    return(
-        <div className='col'>
-          <form className='input-group'>
-            <input className='form-control' type='text' placeholder='Type some text' />
-            <input className="btn btn-primary" type='button' value='submit' />
-          </form>
-        </div>
-    )
+const Input = (secretWord) => {
+
+  const [currentGuess, setCurrentGuess] = useState("")
+
+  return (
+    <div className='col' data-test='component-input'>
+      <form className='input-group'>
+        <input
+          className='form-control'
+          type='text'
+          placeholder='Type some text'
+          data-test='input-box'
+          value={currentGuess}
+          onChange={(event) => setCurrentGuess(event.target.value)} 
+          />
+        <input
+          data-test='submit-button'
+          className="btn btn-primary"
+          type='button'
+          value='submit'
+          onClick={() => {
+            setCurrentGuess("")
+          }}
+        />
+      </form>
+    </div>
+  )
+}
+
+Input.prototype = {
+  secretWord : PropTypes.string.isRequired
 }
 
 export default Input;

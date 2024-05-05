@@ -1,6 +1,13 @@
 import React from "react";
-import {mount} from 'enzyme'
-import { findAllByAltText, checkProps } from "../test/testUtils";
+import { shallow } from "enzyme";
+
+import { findAllByAltText } from "../test/testUtils";
 import App from './App';
 
-const setUp = () => mount(<App/>)
+const setUp = () => shallow(<App />)
+
+test('render component withut error',()=>{
+    const wrapper = setUp()
+    const wrapperComponent = findAllByAltText(wrapper, 'jotto-container')
+    expect(wrapperComponent.length).toBe(1)
+})
