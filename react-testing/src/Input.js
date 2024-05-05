@@ -6,6 +6,7 @@ const Input = (secretWord) => {
   const [currentGuess, setCurrentGuess] = useState("")
 
   return (
+    <div className="p-3">
     <div className='col' data-test='component-input'>
       <form className='input-group'>
         <input
@@ -21,11 +22,13 @@ const Input = (secretWord) => {
           className="btn btn-primary"
           type='button'
           value='submit'
-          onClick={() => {
+          onClick={(evt) => {
+            evt.preventDefault()
             setCurrentGuess("")
           }}
         />
       </form>
+    </div>
     </div>
   )
 }

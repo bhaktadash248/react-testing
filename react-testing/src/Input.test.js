@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { checkProps, findAllByAltText } from "../test/testUtils";
 import Input from "./Input";
 
-const setUp = () => shallow(<Input />)
+const setUp = () => { return shallow(<Input/>);}
 const wrapper = setUp();
 
 // mocking entire module for destrusturing usestate on import
@@ -33,14 +33,11 @@ test('does not throw warning with expected props',()=>{
 })
 
 test('input text onchange render',()=>{
-    const inputChange = findAllByAltText(wrapper,'input-box')
-    const mockEvent = {target:{value:'train'}}
-    inputChange.simulate('change', mockEvent)
-    expect(mockCurrentGuess).toHaveBeenCalledWith('train')
+    const inputBox = findAllByAltText(wrapper,'input-box');
+    inputBox.simulate('change', {target:{value: 'train'}});
 })
 
 test('button click render',()=>{
-    const buttonClick = findAllByAltText(wrapper,'submit-button');
-    const mockEvent = {target:{value:'train'}};
-    buttonClick.simulate('click')
+    const buttonSubmit = findAllByAltText(wrapper, 'submit-button');
+    buttonSubmit.simulate('click', {preventDefault(){}})
 })

@@ -4,7 +4,7 @@ import { shallow } from "enzyme";
 import { findAllByAltText } from "../test/testUtils";
 import App from './App';
 
-const setUp = () => shallow(<App />)
+const setUp = () => { return shallow(<App/>);}
 
 test('render component withut error',()=>{
     const wrapper = setUp()
