@@ -3,7 +3,7 @@ import React from "react";
 const GuessedWords = () => {
     return (
         <div className="p-3" data-test='guessed-word'>
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -14,8 +14,7 @@ const GuessedWords = () => {
                 <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>1</td>
+                        <td>Mark</td>                        <td>1</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
